@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DOKUMENTA.VIDEO is a multidisciplinary research and development lab providing comprehensive, AI-enhanced video solutions and services.">
-    <title>DOKUMENTA.VIDEO | AI & AV Archives</title>
+    <title>DOKUMENTA.VIDEO | AV Archive Systems</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Playfair Display (Cinematic Serif) & Inter (Modern UI) & JetBrains Mono (Technical) -->
+    <!-- Google Fonts: VT323 (VCR OSD Font) & JetBrains Mono (Terminal) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -22,17 +22,18 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                        vcr: ['VT323', 'monospace'],
                     },
                     colors: {
-                        film: {
-                            amber: '#D96C06',  /* Projector Halogen Amber */
-                            dark: '#1A1816',   /* Deep Cinematic Sepia/Black */
-                            paper: '#F5F2EB',  /* Aged Archival Paper */
-                            gray: '#E6E1D6',   /* Vintage Folder/Board */
-                            ink: '#2D2A26'     /* Soft Black Typewriter Ink */
+                        vtr: {
+                            black: '#0a0a0c',     /* Dark CRT Screen */
+                            console: '#1a1a1e',   /* Hardware Console Grey */
+                            panel: '#2d2d33',     /* Lighter Panel Grey */
+                            phosphor: '#4AF626',  /* Bright Terminal Green */
+                            cyan: '#00FFFF',      /* Teletext Cyan */
+                            white: '#EAEAEA',     /* OSD White */
+                            red: '#FF0000'        /* REC Red */
                         }
                     }
                 }
@@ -41,297 +42,343 @@
     </script>
 
     <style>
-        /* Subtle Film Grain Overlay */
-        .film-grain::after {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+        body { background-color: #0a0a0c; color: #EAEAEA; }
+
+        /* SMPTE Color Bars */
+        .smpte-bars {
+            background: linear-gradient(to right, 
+                #c0c0c0 14.28%, #c0c000 14.28%, #c0c000 28.56%, 
+                #00c0c0 28.56%, #00c0c0 42.84%, #00c000 42.84%, 
+                #00c000 57.12%, #c000c0 57.12%, #c000c0 71.4%, 
+                #c00000 71.4%, #c00000 85.68%, #0000c0 85.68%);
+        }
+
+        /* Scanlines & CRT Flicker */
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 50;
+            background-size: 100% 3px, 3px 100%;
             pointer-events: none;
-            z-index: 100;
+            opacity: 0.4;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.95; }
+            5% { opacity: 0.85; }
+            10% { opacity: 0.95; }
+            15% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+        .crt-flicker { animation: flicker 4s infinite; }
+
+        /* VCR Text Glow */
+        .vcr-glow { text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), 0 0 10px rgba(234, 234, 234, 0.5); }
+        .cyan-glow { text-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
+        .green-glow { text-shadow: 0 0 8px rgba(74, 246, 38, 0.6); }
+
+        /* Hardware Panel Borders */
+        .hardware-panel {
+            border-top: 2px solid #4a4a52;
+            border-left: 2px solid #4a4a52;
+            border-bottom: 2px solid #000;
+            border-right: 2px solid #000;
+            transition: all 0.2s ease;
+        }
+        .hardware-panel:hover {
+            border-top: 2px solid #00FFFF;
+            border-left: 2px solid #00FFFF;
         }
 
         /* Scroll Reveal */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s ease-out;
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        /* Archival Card Hover */
-        .archival-card {
-            transition: all 0.4s ease;
-        }
-        .archival-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px -10px rgba(45, 42, 38, 0.15);
-            border-color: #D96C06;
-        }
     </style>
 </head>
-<body class="antialiased bg-film-paper text-film-ink selection:bg-film-amber selection:text-film-paper film-grain">
+<body class="font-mono antialiased selection:bg-vtr-cyan selection:text-vtr-black crt-flicker">
+    <div class="scanlines fixed inset-0"></div>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full z-40 top-0 bg-film-paper/90 backdrop-blur-md border-b border-film-gray transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+    <!-- SMPTE TOP BAR -->
+    <div class="fixed top-0 left-0 w-full h-2 smpte-bars z-50"></div>
+
+    <!-- NAVIGATION CONSOLE -->
+    <nav class="fixed w-full z-40 top-2 bg-vtr-console/95 border-b-2 border-vtr-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- VTR Spool Logo -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <!-- Custom Super 8 Film Spool/Reel Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-film-amber group-hover:rotate-90 transition-transform duration-[1500ms] ease-in-out">
-                      <circle cx="12" cy="12" r="10"/>
-                      <circle cx="12" cy="12" r="2"/>
-                      <circle cx="12" cy="6" r="2.5"/>
-                      <circle cx="17.2" cy="15" r="2.5"/>
-                      <circle cx="6.8" cy="15" r="2.5"/>
-                    </svg>
-                    <span class="font-mono font-bold tracking-[0.15em] text-film-ink text-sm md:text-base">DOKUMENTA<span class="text-film-amber">.VIDEO</span></span>
+                    <div class="relative w-8 h-8 rounded-full border-2 border-vtr-white flex items-center justify-center group-hover:border-vtr-cyan transition-colors group-hover:animate-spin">
+                        <div class="absolute w-2 h-2 bg-vtr-white rounded-full group-hover:bg-vtr-cyan"></div>
+                        <div class="absolute top-1 w-1.5 h-1.5 bg-vtr-black rounded-full"></div>
+                        <div class="absolute bottom-1 w-1.5 h-1.5 bg-vtr-black rounded-full"></div>
+                        <div class="absolute left-1 w-1.5 h-1.5 bg-vtr-black rounded-full"></div>
+                        <div class="absolute right-1 w-1.5 h-1.5 bg-vtr-black rounded-full"></div>
+                    </div>
+                    <span class="font-vcr text-2xl tracking-[0.1em] text-vtr-white vcr-glow mt-1">DOKUMENTA<span class="text-vtr-cyan">.VIDEO</span></span>
                 </a>
-                <div class="hidden md:flex space-x-6 font-mono text-xs font-semibold items-center uppercase tracking-widest text-film-ink/80">
-                    <a href="#lab" class="hover:text-film-amber transition-colors">The Lab</a>
-                    <a href="#architect" class="hover:text-film-amber transition-colors">The AV_Archivist</a>
-                    <a href="#mission" class="hover:text-film-amber transition-colors">The Mission</a>
-                    <div class="w-px h-4 bg-film-gray mx-2"></div>
-                    <a href="https://github.com/josev2046" target="_blank" aria-label="GitHub Profile" class="hover:text-film-amber transition-colors flex items-center gap-1"><i data-lucide="github" class="w-4 h-4"></i></a>
-                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" aria-label="ORCID Profile" class="hover:text-film-amber transition-colors font-bold text-sm">iD</a>
-                    <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" aria-label="LinkedIn Profile" class="hover:text-film-amber transition-colors flex items-center gap-1"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-                    <a href="#contact" class="bg-film-ink text-film-paper px-5 py-2 hover:bg-film-amber transition-colors ml-4 rounded-sm">Contact</a>
+                
+                <div class="hidden md:flex space-x-6 text-xs font-bold items-center uppercase tracking-widest text-vtr-white/70">
+                    <a href="#lab" class="hover:text-vtr-cyan transition-colors">[ CH-1: LAB ]</a>
+                    <a href="#architect" class="hover:text-vtr-cyan transition-colors">[ CH-2: ARCHIVIST ]</a>
+                    <a href="#mission" class="hover:text-vtr-cyan transition-colors">[ CH-3: MISSION ]</a>
+                    <div class="w-px h-4 bg-vtr-panel mx-1"></div>
+                    <a href="https://github.com/josev2046" target="_blank" aria-label="GitHub Profile" class="hover:text-vtr-phosphor transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" aria-label="ORCID Profile" class="hover:text-vtr-phosphor transition-colors font-black text-base">iD</a>
+                    <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" aria-label="LinkedIn Profile" class="hover:text-vtr-phosphor transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#contact" class="bg-vtr-white text-vtr-black px-4 py-1.5 hover:bg-vtr-cyan transition-colors ml-2 font-bold">> TX_CONTACT</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-40 bg-film-dark text-film-paper overflow-hidden border-b-[6px] border-film-amber">
-        <!-- Halogen Projector Glow Effect -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_#D96C06_0%,_transparent_60%)] opacity-20"></div>
-        
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-flex items-center gap-3 px-4 py-1.5 border border-film-amber/50 text-film-amber font-mono text-[10px] font-bold mb-8 tracking-[0.2em] uppercase rounded-sm">
-                    <span class="w-1.5 h-1.5 bg-film-amber rounded-full animate-pulse"></span>
-                    Audiovisual Preservation &nbsp;|&nbsp; Open Access &nbsp;|&nbsp; AI
+    <!-- HERO SECTION (OSD STYLE) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-vtr-black border-b-2 border-vtr-panel z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <!-- VCR OSD Header -->
+            <div class="flex justify-between items-center mb-12 font-vcr text-2xl text-vtr-phosphor green-glow">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-vtr-red rounded-full animate-pulse"></span>
+                    <span>REC</span>
                 </div>
-                
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-semibold leading-[1.1] mb-8 text-film-paper tracking-tight">
-                    Unlocking the inherent value in <br><span class="text-film-amber italic font-light">media archives.</span>
+                <span>SP // 01:00:00:00</span>
+            </div>
+
+            <div class="max-w-4xl">
+                <p class="text-vtr-cyan font-bold text-xs tracking-[0.2em] mb-4 uppercase">SYSTEM INITIALISED // STATUS: ONLINE</p>
+                <h1 class="text-5xl sm:text-7xl font-vcr leading-none mb-8 text-vtr-white uppercase vcr-glow">
+                    Unlocking the inherent value in <br>
+                    <span class="text-vtr-cyan cyan-glow">media archives.</span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl text-film-paper/70 mb-12 font-sans font-light leading-relaxed max-w-2xl mx-auto">
-                    A multidisciplinary R&D lab bridging academic rigour and impactful industry application through open, interoperable systems and cognitive technologies.
+                <p class="text-sm sm:text-base text-vtr-white/80 mb-12 leading-relaxed max-w-2xl border-l-2 border-vtr-cyan pl-4">
+                    > A multidisciplinary R&D lab bridging academic rigour and impactful industry application through open, interoperable systems and cognitive technologies.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row justify-center gap-6 font-mono text-sm tracking-widest uppercase">
-                    <a href="#contact" class="inline-flex justify-center items-center gap-3 bg-film-amber text-film-dark px-8 py-4 font-bold transition-all hover:bg-film-paper rounded-sm">
-                        Initiate Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-vtr-cyan text-vtr-black px-8 py-3 font-bold uppercase tracking-widest hover:bg-vtr-white transition-colors hardware-panel">
+                        Initiate Tx <i data-lucide="power" class="w-4 h-4"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT THE LAB SECTION (With 4-Card Grid) -->
-    <section id="lab" class="py-32 bg-film-paper border-b border-film-gray relative">
+    <!-- THE LAB SECTION (RACK MOUNT STYLE) -->
+    <section id="lab" class="py-24 bg-vtr-console border-b-2 border-vtr-panel relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
-                
-                <!-- Left Column: Text -->
-                <div class="lg:col-span-5 flex flex-col justify-center">
-                    <h2 class="text-[10px] font-mono font-bold tracking-[0.2em] text-film-amber uppercase mb-4">01. The Lab</h2>
-                    <h3 class="text-4xl font-serif font-semibold text-film-ink mb-8 leading-tight">Next-Generation Archival Intelligence.</h3>
-                    <div class="font-sans font-light text-film-ink/80 text-lg leading-relaxed space-y-6">
-                        <p>
-                            DOKUMENTA.VIDEO bridges the gap between traditional media preservation and modern cognitive computing. We engineer systems that transform unstructured, legacy audiovisual collections into discoverable and highly structured data.
-                        </p>
-                        <p>
-                            Rather than simply digitising tape, we deploy applied AI—leveraging Computer Vision, Speech Recognition, and Natural Language Understanding (NLU)—to unlock the inherent cultural and historical value hidden within vast media archives.
-                        </p>
-                    </div>
+            <div class="mb-12 border-b-2 border-vtr-panel pb-4 reveal">
+                <h2 class="text-2xl font-vcr text-vtr-white uppercase tracking-widest vcr-glow">CH-01 // Next-Generation Archival Intelligence</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 reveal">
+                <!-- Left Column -->
+                <div class="lg:col-span-5 text-sm text-vtr-white/70 leading-relaxed space-y-6">
+                    <p>
+                        DOKUMENTA.VIDEO bridges the gap between traditional media preservation and modern cognitive computing. We engineer systems that transform unstructured, legacy audiovisual collections into discoverable and highly structured data.
+                    </p>
+                    <p>
+                        Rather than simply digitising tape, we deploy applied AI—leveraging Computer Vision, Speech Recognition, and Natural Language Understanding (NLU)—to unlock the inherent cultural and historical value hidden within vast media archives.
+                    </p>
                 </div>
                 
-                <!-- Right Column: 4 Cards -->
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="p-8 bg-white border border-film-gray rounded-sm archival-card">
-                        <i data-lucide="git-merge" class="w-6 h-6 text-film-amber mb-5 stroke-[1.5]"></i>
-                        <h4 class="font-serif font-bold text-film-ink text-lg mb-3">Information Architecture</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Structuring and organising complex archival data for seamless, intuitive retrieval.</p>
+                <!-- Right Column: 4 Rack Modules -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-6 bg-vtr-black hardware-panel group">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-vcr text-xl text-vtr-phosphor uppercase">Info Arch</h4>
+                            <span class="text-[10px] text-vtr-panel">MOD-01</span>
+                        </div>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Structuring and organising complex archival data for seamless, intuitive retrieval.</p>
                     </div>
-                    <div class="p-8 bg-white border border-film-gray rounded-sm archival-card">
-                        <i data-lucide="cpu" class="w-6 h-6 text-film-amber mb-5 stroke-[1.5]"></i>
-                        <h4 class="font-serif font-bold text-film-ink text-lg mb-3">AI & NLU Technologies</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Strategic and technical advice on implementing Speech Recognition and Computer Vision.</p>
+                    
+                    <div class="p-6 bg-vtr-black hardware-panel group">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-vcr text-xl text-vtr-phosphor uppercase">AI & NLU</h4>
+                            <span class="text-[10px] text-vtr-panel">MOD-02</span>
+                        </div>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Strategic and technical advice on implementing Speech Recognition and Computer Vision.</p>
                     </div>
-                    <div class="p-8 bg-white border border-film-gray rounded-sm archival-card">
-                        <i data-lucide="library" class="w-6 h-6 text-film-amber mb-5 stroke-[1.5]"></i>
-                        <h4 class="font-serif font-bold text-film-ink text-lg mb-3">Academic Outreach</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Curriculum development, training programmes, and active industry mentoring.</p>
+
+                    <div class="p-6 bg-vtr-black hardware-panel group">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-vcr text-xl text-vtr-phosphor uppercase">Academia</h4>
+                            <span class="text-[10px] text-vtr-panel">MOD-03</span>
+                        </div>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Curriculum development, training programmes, and active industry mentoring.</p>
                     </div>
-                    <div class="p-8 bg-white border border-film-gray rounded-sm archival-card">
-                        <i data-lucide="film" class="w-6 h-6 text-film-amber mb-5 stroke-[1.5]"></i>
-                        <h4 class="font-serif font-bold text-film-ink text-lg mb-3">Collections Audit</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Comprehensive evaluation, triage, and project management for fragile media archives.</p>
+
+                    <div class="p-6 bg-vtr-black hardware-panel group">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-vcr text-xl text-vtr-phosphor uppercase">Col. Audit</h4>
+                            <span class="text-[10px] text-vtr-panel">MOD-04</span>
+                        </div>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Comprehensive evaluation, triage, and project management for fragile media archives.</p>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- ARCHITECT SECTION -->
-    <section id="architect" class="py-32 bg-white border-b border-film-gray">
+    <!-- ARCHITECT SECTION (PERSONNEL FILE STYLE) -->
+    <section id="architect" class="py-24 bg-vtr-black border-b-2 border-vtr-panel relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 border-b-2 border-vtr-panel pb-4 reveal flex justify-between items-end">
+                <h2 class="text-2xl font-vcr text-vtr-white uppercase tracking-widest vcr-glow">CH-02 // Operator File: J. Velázquez, MA</h2>
+                <span class="text-vtr-cyan font-bold text-xs uppercase hidden sm:block">Clearance: Level 9</span>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
-                
                 <div class="lg:col-span-6">
-                    <h2 class="text-[10px] font-mono font-bold tracking-[0.2em] text-film-amber uppercase mb-4">02. The AV_Archivist</h2>
-                    <h3 class="text-5xl font-serif font-semibold text-film-ink mb-8 tracking-tight">José Velázquez, MA</h3>
-                    <div class="text-film-ink/80 font-sans font-light text-lg leading-relaxed space-y-6">
+                    <div class="text-vtr-white/70 text-sm leading-relaxed space-y-6">
                         <p>
-                            A London-based Principal Architect and archive practitioner with over two decades of experience driving digital innovation across the technology, media, and cultural heritage sectors. Consulting for organisations such as the BBC, IBM, and Google, his work focuses on the intersection of audiovisual preservation, artificial intelligence, and open systems.
+                            > A London-based Principal Architect and archive practitioner with over two decades of experience driving digital innovation across the technology, media, and cultural heritage sectors. Consulting for organisations such as the BBC, IBM, and Google, his work focuses on the intersection of audiovisual preservation, artificial intelligence, and open systems.
                         </p>
                         <p>
-                            Trained at the BBC in broadcast operations and holding an MA in Documentary Research for Film and TV (UAL), José specialises in bespoke Media Asset Management (MAM) systems, OTT media, and the ethical application of AI—including Retrieval-Augmented Generation (RAG)—to reshape cultural memory and reclaim marginalised narratives.
+                            > Trained at the BBC in broadcast operations and holding an MA in Documentary Research for Film and TV (UAL), José specialises in bespoke Media Asset Management (MAM) systems, OTT media, and the ethical application of AI—including Retrieval-Augmented Generation (RAG)—to reshape cultural memory and reclaim marginalised narratives.
                         </p>
                     </div>
                     
-                    <div class="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-film-gray">
-                        <a href="https://github.com/josev2046" target="_blank" class="flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-film-ink hover:text-film-amber transition-colors">
+                    <div class="flex flex-wrap items-center gap-6 mt-8 pt-6 border-t-2 border-dashed border-vtr-panel">
+                        <a href="https://github.com/josev2046" target="_blank" class="flex items-center gap-2 text-xs font-bold uppercase text-vtr-phosphor hover:text-vtr-white transition-colors">
                             <i data-lucide="github" class="w-4 h-4"></i> GitHub
                         </a>
-                        <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-film-ink hover:text-film-amber transition-colors">
+                        <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="flex items-center gap-2 text-xs font-bold uppercase text-vtr-phosphor hover:text-white transition-colors">
                             <span class="font-bold text-sm">iD</span> ORCID
                         </a>
-                        <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-film-ink hover:text-film-amber transition-colors">
+                        <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="flex items-center gap-2 text-xs font-bold uppercase text-vtr-phosphor hover:text-white transition-colors">
                             <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
                         </a>
                     </div>
                 </div>
                 
-                <div class="lg:col-span-6 grid grid-cols-1 gap-6">
-                    <!-- Achievement Cards (Index Card Style) -->
-                    <div class="p-8 bg-film-paper border border-film-gray rounded-sm relative">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-film-amber rounded-l-sm"></div>
-                        <h4 class="font-serif font-bold text-xl text-film-ink mb-3">Industry Recognition</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Recognised with the 2019 IBM Watson Media Award for innovative use of AI in media archives, showcasing early applications of RAG at IBC 2019.</p>
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="p-6 bg-vtr-console border-l-4 border-vtr-cyan">
+                        <h4 class="font-vcr text-xl text-vtr-white mb-2 uppercase">Log: Industry Recognition</h4>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Recognised with the 2019 IBM Watson Media Award for innovative use of AI in media archives, showcasing early applications of RAG at IBC 2019.</p>
                     </div>
-                    <div class="p-8 bg-film-paper border border-film-gray rounded-sm relative">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-film-amber rounded-l-sm"></div>
-                        <h4 class="font-serif font-bold text-xl text-film-ink mb-3">Heritage Preservation</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Led the 'Black Lives' project (FIAT/IFTA 2020), digitising obsolete formats to preserve narratives from Eartha Kitt and Quincy Jones, alongside experimental AI audio preservation (ICCROM 2025).</p>
+                    <div class="p-6 bg-vtr-console border-l-4 border-vtr-cyan">
+                        <h4 class="font-vcr text-xl text-vtr-white mb-2 uppercase">Log: Heritage Preservation</h4>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Led the 'Black Lives' project (FIAT/IFTA 2020), digitising obsolete formats to preserve narratives from Eartha Kitt and Quincy Jones, alongside experimental AI audio preservation (ICCROM 2025).</p>
                     </div>
-                    <div class="p-8 bg-film-paper border border-film-gray rounded-sm relative">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-film-amber rounded-l-sm"></div>
-                        <h4 class="font-serif font-bold text-xl text-film-ink mb-3">Academic Outreach</h4>
-                        <p class="text-sm font-sans font-light text-film-ink/70 leading-relaxed">Since 2016, José has served as an Associate Lecturer on the Digital Humanities Master's programme at the Universidad Pablo de Olavide (Seville). He also partners with UAL: LCC, Cardiff School of Journalism, and Open Cinema.</p>
+                    <div class="p-6 bg-vtr-console border-l-4 border-vtr-cyan">
+                        <h4 class="font-vcr text-xl text-vtr-white mb-2 uppercase">Log: Academic Outreach</h4>
+                        <p class="text-xs text-vtr-white/60 leading-relaxed">Since 2016, José has served as an Associate Lecturer on the Digital Humanities Master's programme at the Universidad Pablo de Olavide (Seville). He also partners with UAL: LCC, Cardiff School of Journalism, and Open Cinema.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MISSION SECTION -->
-    <section id="mission" class="py-32 bg-film-dark text-film-paper border-b-4 border-film-amber">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-[10px] font-mono font-bold tracking-[0.2em] text-film-amber uppercase mb-6">03. The Mission</h2>
-            <h3 class="text-4xl md:text-5xl font-serif font-semibold text-film-paper mb-12 leading-tight">Putting experience to work<br>for communities.</h3>
+    <!-- MISSION SECTION (BROADCAST TRANSMISSION STYLE) -->
+    <section id="mission" class="py-24 bg-vtr-console border-b-2 border-vtr-panel relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="mb-8 text-center">
+                <h2 class="text-2xl font-vcr text-vtr-phosphor uppercase tracking-widest green-glow">CH-03 // Mission Parameters</h2>
+            </div>
             
-            <blockquote class="text-xl md:text-2xl font-serif font-light text-film-paper/90 italic leading-relaxed mb-12 text-center">
-                "Archivists and record-keepers are not traditionally considered stakeholders when it comes to discussions connected to the development and the implementation of AI solutions. And yet, they will need to advise decision-makers on the preservation of algorithms as well as understand how to manage the significant ethical challenges posed by these emerging cognitive technologies."
-                <footer class="text-xs font-mono font-bold tracking-widest text-film-amber mt-8 not-italic uppercase">— Dr. Anthea Seles, Secretary General ICA (2020)</footer>
+            <blockquote class="text-lg md:text-xl font-mono text-vtr-white leading-relaxed mb-10 border-2 border-vtr-panel p-8 bg-vtr-black relative">
+                <div class="absolute top-2 right-2 text-[10px] text-vtr-panel uppercase">Incoming Transmission</div>
+                <span class="text-vtr-cyan">></span> "Archivists and record-keepers are not traditionally considered stakeholders when it comes to discussions connected to the development and the implementation of AI solutions. And yet, they will need to advise decision-makers on the preservation of algorithms as well as understand how to manage the significant ethical challenges posed by these emerging cognitive technologies."
+                <footer class="text-xs font-bold text-vtr-cyan mt-6 uppercase">-- Dr. Anthea Seles, Sec. Gen. ICA (2020)</footer>
             </blockquote>
 
-            <div class="text-center font-sans font-light text-lg text-film-paper/70 space-y-6">
-                <p>As the role of data in business and academia expands beyond anything the world has seen, archival workforce AI training becomes an urgent requirement.</p>
-                <p><strong class="font-semibold text-white">DOKUMENTA.VIDEO</strong> is committed to addressing this digital skill gap in the archivist profession, particularly in emerging countries, helping students, professionals, and organisations build critical technology skills and competencies in the areas of Cloud, Big Data, and AI.</p>
+            <div class="text-sm text-vtr-white/70 space-y-4">
+                <p>> As the role of data in business and academia expands beyond anything the world has seen, archival workforce AI training becomes an urgent requirement.</p>
+                <p>> <strong class="text-vtr-white font-bold">DOKUMENTA.VIDEO</strong> is committed to addressing this digital skill gap in the archivist profession, particularly in emerging countries, helping students, professionals, and organisations build critical technology skills and competencies in the areas of Cloud, Big Data, and AI.</p>
             </div>
         </div>
     </section>
 
-    <!-- ENDORSEMENTS SECTION -->
-    <section id="endorsements" class="py-32 bg-film-paper border-b border-film-gray">
+    <!-- ENDORSEMENTS SECTION (SYSTEM LOGS) -->
+    <section id="endorsements" class="py-24 bg-vtr-black border-b-2 border-vtr-panel relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="text-center mb-16">
-                <h2 class="text-[10px] font-mono font-bold tracking-[0.2em] text-film-amber uppercase mb-4">04. Endorsements</h2>
-                <h3 class="text-4xl font-serif font-semibold text-film-ink">System Verifications.</h3>
+            <div class="mb-12 border-b-2 border-vtr-panel pb-4">
+                <h2 class="text-2xl font-vcr text-vtr-white uppercase tracking-widest vcr-glow">CH-04 // System Verifications</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Quote 1 -->
-                <div class="bg-white p-10 border border-film-gray rounded-sm flex flex-col h-full shadow-sm">
-                    <p class="font-sans font-light text-film-ink/80 leading-relaxed mb-8 flex-grow text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Log 1 -->
+                <div class="bg-vtr-console p-8 border-t-2 border-vtr-phosphor flex flex-col h-full">
+                    <p class="font-mono text-vtr-white/80 leading-relaxed mb-8 flex-grow text-xs">
                         "Jose is an accomplished and innovative technologist who effervescently works with customers and partners who are delighted with his technical acumen and easy grasp of their environments. He is an industry expert on the application of AI to unlocking the inherent value in media archives."
                     </p>
-                    <div class="pt-6 mt-auto">
-                        <p class="font-serif font-bold text-film-ink text-base">Tom Ohanian</p>
-                        <p class="font-mono text-[10px] text-film-amber mt-2 uppercase tracking-widest">Academy Award® & Emmy® recipient</p>
+                    <div class="mt-auto">
+                        <p class="font-vcr text-vtr-white text-xl uppercase">Tom Ohanian</p>
+                        <p class="text-[10px] text-vtr-cyan uppercase tracking-widest">Academy Award® & Emmy® recipient</p>
                     </div>
                 </div>
 
-                <!-- Quote 2 -->
-                <div class="bg-white p-10 border border-film-gray rounded-sm flex flex-col h-full shadow-sm">
-                    <p class="font-sans font-light text-film-ink/80 leading-relaxed mb-8 flex-grow text-sm">
+                <!-- Log 2 -->
+                <div class="bg-vtr-console p-8 border-t-2 border-vtr-phosphor flex flex-col h-full">
+                    <p class="font-mono text-vtr-white/80 leading-relaxed mb-8 flex-grow text-xs">
                         "Jose interweaves his deep digital media archiving & management skill set with his extensive computer savoir-faire seamlessly. His technical background facilitates the know-how to develop innovative data and text mining algorithms for the extraction of extremely relevant information from well-organized records."
                     </p>
-                    <div class="pt-6 mt-auto">
-                        <p class="font-serif font-bold text-film-ink text-base">Prof. Domingo Savio Rodríguez Baena</p>
-                        <p class="font-mono text-[10px] text-film-amber mt-2 uppercase tracking-widest">Universidad Pablo de Olavide, Seville</p>
+                    <div class="mt-auto">
+                        <p class="font-vcr text-vtr-white text-xl uppercase">Prof. Domingo S. Rodríguez Baena</p>
+                        <p class="text-[10px] text-vtr-cyan uppercase tracking-widest">Universidad Pablo de Olavide, Seville</p>
                     </div>
                 </div>
 
-                <!-- Quote 3 -->
-                <div class="bg-white p-10 border border-film-gray rounded-sm flex flex-col h-full shadow-sm">
-                    <p class="font-sans font-light text-film-ink/80 leading-relaxed mb-8 flex-grow text-sm">
+                <!-- Log 3 -->
+                <div class="bg-vtr-console p-8 border-t-2 border-vtr-phosphor flex flex-col h-full">
+                    <p class="font-mono text-vtr-white/80 leading-relaxed mb-8 flex-grow text-xs">
                         "Jose has been a great point of interaction with IBM as we were exploring the capabilities of Watson. He can explain systems and processes from low to high level as an expert in archive searchability and accessibility. Definitely an asset to any project!"
                     </p>
-                    <div class="pt-6 mt-auto">
-                        <p class="font-serif font-bold text-film-ink text-base">Spencer Marsden</p>
-                        <p class="font-mono text-[10px] text-film-amber mt-2 uppercase tracking-widest">R&D Engineer, BBC Blue Room</p>
+                    <div class="mt-auto">
+                        <p class="font-vcr text-vtr-white text-xl uppercase">Spencer Marsden</p>
+                        <p class="text-[10px] text-vtr-cyan uppercase tracking-widest">R&D Engineer, BBC Blue Room</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT FORM SECTION -->
-    <section id="contact" class="py-32 bg-white border-b-8 border-film-dark">
+    <!-- CONTACT FORM SECTION (TERMINAL PROMPT) -->
+    <section id="contact" class="py-24 bg-vtr-console border-b-8 border-vtr-black relative z-10">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="text-center mb-16">
-                <h2 class="text-[10px] font-mono font-bold tracking-[0.2em] text-film-amber uppercase mb-4">05. Connect</h2>
-                <h3 class="text-4xl font-serif font-semibold text-film-ink mb-4">Initiate Contact.</h3>
-                <p class="font-sans font-light text-film-ink/70 text-lg">Enquire about our services, book a lecture, or discuss an archival workflow.</p>
+            <div class="mb-10 border-b-2 border-vtr-panel pb-4">
+                <h2 class="text-2xl font-vcr text-vtr-white uppercase tracking-widest vcr-glow">CH-05 // TX_Contact</h2>
+                <p class="text-vtr-cyan text-xs mt-2 uppercase">> Enquire about services, lectures, or workflows.</p>
             </div>
 
-            <div class="bg-film-paper border border-film-gray p-8 sm:p-12 rounded-sm shadow-lg">
+            <div class="bg-vtr-black border-2 border-vtr-panel p-8 hardware-panel">
                 <!-- INDEPENDENT MAILTO HACK -->
-                <form action="mailto:josev2046@gmail.com" method="POST" enctype="text/plain" id="contactForm" class="space-y-8">
+                <form action="mailto:josev2046@gmail.com" method="POST" enctype="text/plain" id="contactForm" class="space-y-6">
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div class="space-y-3">
-                            <label class="block font-mono text-[11px] font-bold text-film-ink uppercase tracking-widest">Name</label>
-                            <input type="text" name="Name" required class="w-full bg-white border border-film-gray text-film-ink p-4 focus:outline-none focus:border-film-amber transition-colors font-sans text-sm rounded-sm" placeholder="Your name">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-vtr-phosphor uppercase">> INPUT_NAME</label>
+                            <input type="text" name="Name" required class="w-full bg-vtr-console border-b-2 border-vtr-panel text-vtr-white p-3 focus:outline-none focus:border-vtr-cyan transition-colors text-sm" placeholder="e.g. USER_01">
                         </div>
-                        <div class="space-y-3">
-                            <label class="block font-mono text-[11px] font-bold text-film-ink uppercase tracking-widest">Email</label>
-                            <input type="email" name="Email" required class="w-full bg-white border border-film-gray text-film-ink p-4 focus:outline-none focus:border-film-amber transition-colors font-sans text-sm rounded-sm" placeholder="email@address.com">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-vtr-phosphor uppercase">> INPUT_EMAIL</label>
+                            <input type="email" name="Email" required class="w-full bg-vtr-console border-b-2 border-vtr-panel text-vtr-white p-3 focus:outline-none focus:border-vtr-cyan transition-colors text-sm" placeholder="user@domain.com">
                         </div>
                     </div>
 
-                    <div class="space-y-3">
-                        <label class="block font-mono text-[11px] font-bold text-film-ink uppercase tracking-widest">Subject</label>
-                        <input type="text" name="Subject" class="w-full bg-white border border-film-gray text-film-ink p-4 focus:outline-none focus:border-film-amber transition-colors font-sans text-sm rounded-sm" placeholder="Project Inquiry">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-vtr-phosphor uppercase">> INPUT_SUBJECT</label>
+                        <input type="text" name="Subject" class="w-full bg-vtr-console border-b-2 border-vtr-panel text-vtr-white p-3 focus:outline-none focus:border-vtr-cyan transition-colors text-sm" placeholder="Subject parameters...">
                     </div>
 
-                    <div class="space-y-3">
-                        <label class="block font-mono text-[11px] font-bold text-film-ink uppercase tracking-widest">Message</label>
-                        <textarea name="Message" required rows="6" class="w-full bg-white border border-film-gray text-film-ink p-4 focus:outline-none focus:border-film-amber transition-colors resize-none font-sans text-sm rounded-sm" placeholder="Provide details here..."></textarea>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-vtr-phosphor uppercase">> INPUT_MESSAGE <span class="animate-pulse">_</span></label>
+                        <textarea name="Message" required rows="5" class="w-full bg-vtr-console border-b-2 border-vtr-panel text-vtr-white p-3 focus:outline-none focus:border-vtr-cyan transition-colors resize-none text-sm" placeholder="Enter transmission data..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full font-mono bg-film-dark hover:bg-film-amber text-film-paper hover:text-film-dark font-bold uppercase tracking-widest p-5 flex justify-center items-center gap-3 transition-all rounded-sm text-sm">
-                        <span>Open Email Client</span> <i data-lucide="send" class="w-4 h-4"></i>
+                    <button type="submit" class="w-full bg-vtr-cyan hover:bg-vtr-white text-vtr-black font-bold uppercase tracking-widest p-4 flex justify-center items-center gap-3 transition-colors hardware-panel">
+                        <span>EXECUTE TRANSMISSION</span> <i data-lucide="terminal" class="w-5 h-5"></i>
                     </button>
                     
-                    <p class="text-center font-sans text-xs text-film-ink/50 mt-6">
-                        GDPR — We are committed to ensuring the security and protection of the personal information that we process.
+                    <p class="text-center text-[10px] text-vtr-panel mt-4 uppercase">
+                        SECURE LINE // GDPR COMPLIANT
                     </p>
                 </form>
             </div>
@@ -339,33 +386,26 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-film-dark py-16 text-film-paper/60 font-sans text-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer class="bg-vtr-black py-12 text-vtr-panel text-xs relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3 group cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-film-amber group-hover:rotate-90 transition-transform duration-[1500ms] ease-in-out">
-                    <circle cx="12" cy="12" r="10"/>
-                    <circle cx="12" cy="12" r="2"/>
-                    <circle cx="12" cy="6" r="2.5"/>
-                    <circle cx="17.2" cy="15" r="2.5"/>
-                    <circle cx="6.8" cy="15" r="2.5"/>
-                </svg>
-                <span class="font-mono font-bold tracking-[0.15em] text-film-paper uppercase text-sm">DOKUMENTA<span class="text-film-amber">.VIDEO</span></span>
+                <span class="font-vcr tracking-[0.2em] text-vtr-white uppercase text-xl vcr-glow">DOKUMENTA<span class="text-vtr-cyan">.VIDEO</span></span>
             </div>
             
-            <div class="flex gap-8">
-                <a href="https://github.com/josev2046" target="_blank" class="hover:text-film-amber transition-colors flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase">
+            <div class="flex gap-6">
+                <a href="https://github.com/josev2046" target="_blank" class="hover:text-vtr-phosphor transition-colors flex items-center gap-2 font-bold uppercase">
                     <i data-lucide="github" class="w-4 h-4"></i> GitHub
                 </a>
-                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-film-amber transition-colors flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase">
+                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-vtr-phosphor transition-colors flex items-center gap-2 font-bold uppercase">
                     iD ORCID
                 </a>
-                <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="hover:text-film-amber transition-colors flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase">
+                <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="hover:text-vtr-phosphor transition-colors flex items-center gap-2 font-bold uppercase">
                     <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
                 </a>
             </div>
 
-            <p class="font-mono text-xs tracking-widest uppercase opacity-70">
-                &copy; <span id="year"></span> Dokumenta.video.
+            <p class="uppercase opacity-70">
+                &copy; <span id="year"></span> Dokumenta.video. All rights reserved.
             </p>
         </div>
     </footer>
