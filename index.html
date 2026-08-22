@@ -27,7 +27,7 @@
                     },
                     colors: {
                         brand: {
-                            red: '#DA291C',   /* Stark Constructivist Red */
+                            green: '#00FF41', /* Phosphor / Oscilloscope Green */
                             black: '#0A0A0A', /* Pitch Black */
                             white: '#FFFFFF',
                             gray: '#F4F4F5',  /* Very light zinc for subtle contrast */
@@ -40,14 +40,14 @@
     </script>
 
     <style>
-        /* Constructivist Hard Shadows */
+        /* Hard Shadows */
         .hard-shadow {
-            box-shadow: 6px 6px 0px 0px #DA291C;
+            box-shadow: 6px 6px 0px 0px #00FF41;
             transition: all 0.2s ease;
         }
         .hard-shadow:hover {
             transform: translate(2px, 2px);
-            box-shadow: 4px 4px 0px 0px #DA291C;
+            box-shadow: 4px 4px 0px 0px #00FF41;
         }
         .hard-shadow-black {
             box-shadow: 6px 6px 0px 0px #0A0A0A;
@@ -74,7 +74,7 @@
         }
     </style>
 </head>
-<body class="antialiased bg-brand-white text-brand-black selection:bg-brand-red selection:text-brand-white">
+<body class="antialiased bg-brand-white text-brand-black selection:bg-brand-green selection:text-brand-black">
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 top-0 bg-brand-white border-b-4 border-brand-black transition-all duration-300">
@@ -82,50 +82,50 @@
             <div class="flex justify-between items-center h-20">
                 <a href="#" class="flex items-center gap-3 group">
                     <!-- Custom Film Spool/Reel Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" class="w-7 h-7 text-brand-red group-hover:rotate-90 transition-transform duration-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" class="w-7 h-7 text-brand-green group-hover:rotate-90 transition-transform duration-700">
                       <circle cx="12" cy="12" r="10"/>
                       <circle cx="12" cy="12" r="2"/>
                       <circle cx="12" cy="6" r="2.5"/>
                       <circle cx="17.2" cy="15" r="2.5"/>
                       <circle cx="6.8" cy="15" r="2.5"/>
                     </svg>
-                    <span class="font-sans font-black tracking-[0.2em] text-brand-black text-sm md:text-lg uppercase">DOKUMENTA<span class="text-brand-red">.VIDEO</span></span>
+                    <span class="font-sans font-black tracking-[0.2em] text-brand-black text-sm md:text-lg uppercase">DOKUMENTA<span class="text-brand-green">.VIDEO</span></span>
                 </a>
                 <div class="hidden md:flex space-x-6 font-sans text-sm font-bold items-center uppercase tracking-wide">
-                    <a href="#lab" class="text-brand-black hover:text-brand-red transition-colors">The Lab</a>
-                    <a href="#architect" class="text-brand-black hover:text-brand-red transition-colors">The Architect</a>
-                    <a href="#mission" class="text-brand-black hover:text-brand-red transition-colors">Mission</a>
+                    <a href="#lab" class="text-brand-black hover:text-brand-green transition-colors">The Lab</a>
+                    <a href="#architect" class="text-brand-black hover:text-brand-green transition-colors">The Architect</a>
+                    <a href="#mission" class="text-brand-black hover:text-brand-green transition-colors">Mission</a>
                     <div class="w-1 h-1 rounded-full bg-brand-black mx-2"></div>
-                    <a href="https://github.com/josev2046" target="_blank" aria-label="GitHub Profile" class="text-brand-black hover:text-brand-red transition-colors flex items-center gap-1"><i data-lucide="github" class="w-5 h-5"></i></a>
-                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" aria-label="ORCID Profile" class="text-brand-black hover:text-brand-red transition-colors font-black text-base">iD</a>
-                    <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" aria-label="LinkedIn Profile" class="text-brand-black hover:text-brand-red transition-colors flex items-center gap-1"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    <a href="#contact" class="bg-brand-black text-brand-white px-6 py-2 hover:bg-brand-red transition-colors ml-4 border-2 border-transparent hover:border-brand-black">Contact</a>
+                    <a href="https://github.com/josev2046" target="_blank" aria-label="GitHub Profile" class="text-brand-black hover:text-brand-green transition-colors flex items-center gap-1"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" aria-label="ORCID Profile" class="text-brand-black hover:text-brand-green transition-colors font-black text-base">iD</a>
+                    <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" aria-label="LinkedIn Profile" class="text-brand-black hover:text-brand-green transition-colors flex items-center gap-1"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#contact" class="bg-brand-black text-brand-white px-6 py-2 hover:bg-brand-green hover:text-brand-black transition-colors ml-4 border-2 border-transparent hover:border-brand-black">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-black text-brand-white overflow-hidden border-b-8 border-brand-red">
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-black text-brand-white overflow-hidden border-b-8 border-brand-green">
         <div class="absolute inset-0 bg-draft-grid opacity-30"></div>
         
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
             <div class="max-w-4xl">
-                <div class="inline-flex items-center gap-3 px-4 py-2 border-2 border-brand-red bg-brand-black text-brand-white font-sans text-xs font-bold mb-8 tracking-widest uppercase">
-                    <span class="w-3 h-3 bg-brand-red"></span>
+                <div class="inline-flex items-center gap-3 px-4 py-2 border-2 border-brand-green bg-brand-black text-brand-white font-sans text-xs font-bold mb-8 tracking-widest uppercase">
+                    <span class="w-3 h-3 bg-brand-green"></span>
                     Audiovisual Preservation &nbsp;|&nbsp; Open Access &nbsp;|&nbsp; AI
                 </div>
                 
                 <h1 class="text-5xl sm:text-6xl lg:text-7xl font-sans font-black leading-tight mb-8 text-brand-white uppercase tracking-tighter">
-                    Unlocking the inherent value in <span class="text-brand-red block mt-2">media archives.</span>
+                    Unlocking the inherent value in <span class="text-brand-green block mt-2">media archives.</span>
                 </h1>
                 
-                <p class="text-lg sm:text-2xl text-brand-gray mb-12 font-serif font-light leading-relaxed max-w-3xl border-l-4 border-brand-red pl-6">
+                <p class="text-lg sm:text-2xl text-brand-gray mb-12 font-serif font-light leading-relaxed max-w-3xl border-l-4 border-brand-green pl-6">
                     A multidisciplinary R&D lab bridging academic rigour and impactful industry application through open, interoperable systems and cognitive technologies.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 font-sans">
-                    <a href="#contact" class="inline-flex justify-center items-center gap-3 bg-brand-red text-brand-white px-10 py-5 font-black uppercase tracking-widest hard-shadow-black border-2 border-brand-black">
+                    <a href="#contact" class="inline-flex justify-center items-center gap-3 bg-brand-green text-brand-black px-10 py-5 font-black uppercase tracking-widest hard-shadow-black border-2 border-brand-black transition-all hover:bg-white">
                         Initiate Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
                 </div>
@@ -140,7 +140,7 @@
                 
                 <!-- Left Column: Text -->
                 <div class="lg:col-span-5 flex flex-col justify-center">
-                    <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-red uppercase mb-4">01. The Lab</h2>
+                    <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-green uppercase mb-4">01. The Lab</h2>
                     <h3 class="text-4xl font-sans font-black text-brand-black mb-8 uppercase tracking-tight leading-none">Next-Generation<br>Archival Intelligence.</h3>
                     <p class="text-brand-black font-serif font-light text-lg leading-relaxed mb-6">
                         DOKUMENTA.VIDEO bridges the gap between traditional media preservation and modern cognitive computing. We engineer systems that transform unstructured, legacy audiovisual collections into discoverable and highly structured data.
@@ -153,22 +153,22 @@
                 <!-- Right Column: 4 Cards -->
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div class="p-8 bg-brand-gray border-2 border-brand-black hover:bg-brand-black hover:text-brand-white transition-colors group">
-                        <i data-lucide="network" class="w-8 h-8 text-brand-red mb-6"></i>
+                        <i data-lucide="network" class="w-8 h-8 text-brand-green mb-6"></i>
                         <h4 class="font-sans font-black text-xl mb-3 uppercase tracking-wide">Information Architecture</h4>
                         <p class="text-sm font-serif leading-relaxed opacity-90">Structuring and organising complex archival data for seamless retrieval.</p>
                     </div>
                     <div class="p-8 bg-brand-gray border-2 border-brand-black hover:bg-brand-black hover:text-brand-white transition-colors group">
-                        <i data-lucide="cpu" class="w-8 h-8 text-brand-red mb-6"></i>
+                        <i data-lucide="cpu" class="w-8 h-8 text-brand-green mb-6"></i>
                         <h4 class="font-sans font-black text-xl mb-3 uppercase tracking-wide">AI & NLU Technologies</h4>
                         <p class="text-sm font-serif leading-relaxed opacity-90">Strategic and technical advice on Speech Recognition and Computer Vision.</p>
                     </div>
                     <div class="p-8 bg-brand-gray border-2 border-brand-black hover:bg-brand-black hover:text-brand-white transition-colors group">
-                        <i data-lucide="book-open" class="w-8 h-8 text-brand-red mb-6"></i>
+                        <i data-lucide="book-open" class="w-8 h-8 text-brand-green mb-6"></i>
                         <h4 class="font-sans font-black text-xl mb-3 uppercase tracking-wide">Academic Outreach</h4>
                         <p class="text-sm font-serif leading-relaxed opacity-90">Curriculum development, training programmes, and industry mentoring.</p>
                     </div>
                     <div class="p-8 bg-brand-gray border-2 border-brand-black hover:bg-brand-black hover:text-brand-white transition-colors group">
-                        <i data-lucide="folder-search" class="w-8 h-8 text-brand-red mb-6"></i>
+                        <i data-lucide="folder-search" class="w-8 h-8 text-brand-green mb-6"></i>
                         <h4 class="font-sans font-black text-xl mb-3 uppercase tracking-wide">Collections Audit</h4>
                         <p class="text-sm font-serif leading-relaxed opacity-90">Comprehensive evaluation and project management for media archives.</p>
                     </div>
@@ -184,8 +184,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
                 
                 <div class="lg:col-span-6">
-                    <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-red uppercase mb-4">02. The Architect</h2>
-                    <h3 class="text-5xl font-sans font-black text-brand-black mb-8 uppercase tracking-tighter">José Velázquez, MA</h3>
+                    <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-green uppercase mb-4">02. The Architect</h2>
+                    <h3 class="text-5xl font-sans font-black text-brand-black mb-8 uppercase tracking-tighter">José Velázquez</h3>
                     <p class="text-brand-black font-serif font-light text-lg leading-relaxed mb-6">
                         A London-based Principal Architect and archive practitioner with over two decades of experience driving digital innovation across the technology, media, and cultural heritage sectors. Consulting for organisations such as the BBC, IBM, and Google, his work focuses on the intersection of audiovisual preservation, artificial intelligence, and open systems.
                     </p>
@@ -194,13 +194,13 @@
                     </p>
                     
                     <div class="flex flex-wrap items-center gap-6 mt-8 pt-8 border-t-2 border-brand-black">
-                        <a href="https://github.com/josev2046" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-red transition-colors">
+                        <a href="https://github.com/josev2046" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-green transition-colors">
                             <i data-lucide="github" class="w-5 h-5"></i> GitHub
                         </a>
-                        <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-red transition-colors">
+                        <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-green transition-colors">
                             <i data-lucide="book-open" class="w-5 h-5"></i> ORCID
                         </a>
-                        <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-red transition-colors">
+                        <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-brand-black hover:text-brand-green transition-colors">
                             <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
                         </a>
                     </div>
@@ -209,21 +209,21 @@
                 <div class="lg:col-span-6 grid grid-cols-1 gap-8">
                     <div class="p-8 bg-brand-white border-2 border-brand-black hard-shadow">
                         <div class="flex items-center gap-4 mb-4 border-b-2 border-brand-black pb-4">
-                            <i data-lucide="award" class="w-6 h-6 text-brand-red"></i>
+                            <i data-lucide="award" class="w-6 h-6 text-brand-green"></i>
                             <h4 class="font-sans font-black text-xl uppercase tracking-wide text-brand-black">Industry Recognition</h4>
                         </div>
                         <p class="text-base font-serif text-brand-black leading-relaxed">Recognised with the 2019 IBM Watson Media Award for innovative use of AI in media archives, showcasing early applications of RAG at IBC 2019.</p>
                     </div>
                     <div class="p-8 bg-brand-white border-2 border-brand-black hard-shadow">
                         <div class="flex items-center gap-4 mb-4 border-b-2 border-brand-black pb-4">
-                            <i data-lucide="film" class="w-6 h-6 text-brand-red"></i>
+                            <i data-lucide="film" class="w-6 h-6 text-brand-green"></i>
                             <h4 class="font-sans font-black text-xl uppercase tracking-wide text-brand-black">Heritage Preservation</h4>
                         </div>
                         <p class="text-base font-serif text-brand-black leading-relaxed">Led the 'Black Lives' project (FIAT/IFTA 2020), digitising obsolete formats to preserve narratives from Eartha Kitt and Quincy Jones, alongside experimental AI audio preservation (ICCROM 2025).</p>
                     </div>
                     <div class="p-8 bg-brand-white border-2 border-brand-black hard-shadow">
                         <div class="flex items-center gap-4 mb-4 border-b-2 border-brand-black pb-4">
-                            <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-red"></i>
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-green"></i>
                             <h4 class="font-sans font-black text-xl uppercase tracking-wide text-brand-black">Academic Outreach</h4>
                         </div>
                         <p class="text-base font-serif text-brand-black leading-relaxed">Since 2016, José has served as an Associate Lecturer on the Digital Humanities Master's programme at the Universidad Pablo de Olavide (Seville). He also partners with UAL: LCC, Cardiff School of Journalism, and Open Cinema.</p>
@@ -234,12 +234,12 @@
     </section>
 
     <!-- MISSION SECTION -->
-    <section id="mission" class="py-24 bg-brand-black text-brand-white border-b-2 border-brand-red">
+    <section id="mission" class="py-24 bg-brand-black text-brand-white border-b-2 border-brand-green">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-red uppercase mb-4">03. Mission</h2>
+            <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-green uppercase mb-4">03. Mission</h2>
             <h3 class="text-4xl md:text-5xl font-sans font-black text-brand-white mb-12 uppercase tracking-tight">Putting experience to work<br>for communities.</h3>
             
-            <blockquote class="text-2xl md:text-3xl font-serif font-light text-brand-white leading-relaxed mb-12 border-l-8 border-brand-red pl-8 text-left bg-brand-dark p-10">
+            <blockquote class="text-2xl md:text-3xl font-serif font-light text-brand-white leading-relaxed mb-12 border-l-8 border-brand-green pl-8 text-left bg-brand-dark p-10">
                 "Archivists and record-keepers are not traditionally considered stakeholders when it comes to discussions connected to the development and the implementation of AI solutions. And yet, they will need to advise decision-makers on the preservation of algorithms as well as understand how to manage the significant ethical challenges posed by these emerging cognitive technologies."
                 <footer class="text-sm font-sans font-bold tracking-widest text-brand-gray mt-6 uppercase">— Dr. Anthea Seles, Secretary General ICA (2020)</footer>
             </blockquote>
@@ -255,41 +255,41 @@
     <section id="endorsements" class="py-24 bg-brand-gray border-b-2 border-brand-black">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <div class="text-center mb-16">
-                <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-red uppercase mb-4">04. Endorsements</h2>
+                <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-green uppercase mb-4">04. Endorsements</h2>
                 <h3 class="text-4xl font-sans font-black text-brand-black uppercase tracking-tight">System Verifications.</h3>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-brand-white p-8 border-4 border-brand-black flex flex-col h-full">
-                    <i data-lucide="quote" class="w-10 h-10 text-brand-red mb-6"></i>
+                    <i data-lucide="quote" class="w-10 h-10 text-brand-green mb-6"></i>
                     <p class="font-serif font-light text-brand-black leading-relaxed mb-8 flex-grow text-base">
                         "Jose is an accomplished and innovative technologist who effervescently works with customers and partners who are delighted with his technical acumen and easy grasp of their environments. He is an industry expert on the application of AI to unlocking the inherent value in media archives."
                     </p>
                     <div class="border-t-4 border-brand-black pt-6 mt-auto">
                         <p class="font-sans font-black text-brand-black text-lg uppercase tracking-wide">Tom Ohanian</p>
-                        <p class="font-sans font-bold text-xs text-brand-red mt-2 uppercase tracking-wider">Academy Award® & Emmy® recipient</p>
+                        <p class="font-sans font-bold text-xs text-brand-green mt-2 uppercase tracking-wider">Academy Award® & Emmy® recipient</p>
                     </div>
                 </div>
 
                 <div class="bg-brand-white p-8 border-4 border-brand-black flex flex-col h-full">
-                    <i data-lucide="quote" class="w-10 h-10 text-brand-red mb-6"></i>
+                    <i data-lucide="quote" class="w-10 h-10 text-brand-green mb-6"></i>
                     <p class="font-serif font-light text-brand-black leading-relaxed mb-8 flex-grow text-base">
                         "Jose interweaves his deep digital media archiving & management skill set with his extensive computer savoir-faire seamlessly. His technical background facilitates the know-how to develop innovative data and text mining algorithms for the extraction of extremely relevant information from well-organized records."
                     </p>
                     <div class="border-t-4 border-brand-black pt-6 mt-auto">
                         <p class="font-sans font-black text-brand-black text-lg uppercase tracking-wide">Prof. Domingo Savio Rodríguez Baena</p>
-                        <p class="font-sans font-bold text-xs text-brand-red mt-2 uppercase tracking-wider">Universidad Pablo de Olavide, Seville</p>
+                        <p class="font-sans font-bold text-xs text-brand-green mt-2 uppercase tracking-wider">Universidad Pablo de Olavide, Seville</p>
                     </div>
                 </div>
 
                 <div class="bg-brand-white p-8 border-4 border-brand-black flex flex-col h-full">
-                    <i data-lucide="quote" class="w-10 h-10 text-brand-red mb-6"></i>
+                    <i data-lucide="quote" class="w-10 h-10 text-brand-green mb-6"></i>
                     <p class="font-serif font-light text-brand-black leading-relaxed mb-8 flex-grow text-base">
                         "Jose has been a great point of interaction with IBM as we were exploring the capabilities of Watson. He can explain systems and processes from low to high level as an expert in archive searchability and accessibility. Definitely an asset to any project!"
                     </p>
                     <div class="border-t-4 border-brand-black pt-6 mt-auto">
                         <p class="font-sans font-black text-brand-black text-lg uppercase tracking-wide">Spencer Marsden</p>
-                        <p class="font-sans font-bold text-xs text-brand-red mt-2 uppercase tracking-wider">R&D Engineer, BBC Blue Room</p>
+                        <p class="font-sans font-bold text-xs text-brand-green mt-2 uppercase tracking-wider">R&D Engineer, BBC Blue Room</p>
                     </div>
                 </div>
             </div>
@@ -300,7 +300,7 @@
     <section id="contact" class="py-24 bg-brand-white border-b-8 border-brand-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <div class="text-center mb-16">
-                <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-red uppercase mb-4">05. Connect</h2>
+                <h2 class="text-sm font-sans font-black tracking-[0.2em] text-brand-green uppercase mb-4">05. Connect</h2>
                 <h3 class="text-4xl font-sans font-black text-brand-black uppercase tracking-tight mb-4">Initiate Contact</h3>
                 <p class="font-serif text-brand-black text-lg">Enquire about our services, book a lecture, or discuss an archival workflow.</p>
             </div>
@@ -312,25 +312,25 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                         <div class="space-y-3">
                             <label class="block font-sans text-sm font-black text-brand-black uppercase tracking-widest">Name</label>
-                            <input type="text" name="Name" required class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-red transition-colors font-sans" placeholder="Full Name">
+                            <input type="text" name="Name" required class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-green transition-colors font-sans" placeholder="Full Name">
                         </div>
                         <div class="space-y-3">
                             <label class="block font-sans text-sm font-black text-brand-black uppercase tracking-widest">Email</label>
-                            <input type="email" name="Email" required class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-red transition-colors font-sans" placeholder="email@address.com">
+                            <input type="email" name="Email" required class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-green transition-colors font-sans" placeholder="email@address.com">
                         </div>
                     </div>
 
                     <div class="space-y-3">
                         <label class="block font-sans text-sm font-black text-brand-black uppercase tracking-widest">Subject</label>
-                        <input type="text" name="Subject" class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-red transition-colors font-sans" placeholder="Project Inquiry">
+                        <input type="text" name="Subject" class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-green transition-colors font-sans" placeholder="Project Inquiry">
                     </div>
 
                     <div class="space-y-3">
                         <label class="block font-sans text-sm font-black text-brand-black uppercase tracking-widest">Message</label>
-                        <textarea name="Message" required rows="6" class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-red transition-colors resize-none font-sans" placeholder="Provide details here..."></textarea>
+                        <textarea name="Message" required rows="6" class="w-full bg-brand-white border-2 border-brand-black text-brand-black p-4 focus:outline-none focus:border-brand-green transition-colors resize-none font-sans" placeholder="Provide details here..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full font-sans bg-brand-red hover:bg-brand-black text-brand-white font-black uppercase tracking-widest p-6 flex justify-center items-center gap-3 transition-colors border-2 border-brand-black hard-shadow-black">
+                    <button type="submit" class="w-full font-sans bg-brand-green hover:bg-brand-black text-brand-black hover:text-brand-white font-black uppercase tracking-widest p-6 flex justify-center items-center gap-3 transition-colors border-2 border-brand-black hard-shadow-black">
                         <span>Open Email Client</span> <i data-lucide="send" class="w-5 h-5"></i>
                     </button>
                     
@@ -346,24 +346,24 @@
     <footer class="bg-brand-black py-16 text-brand-white font-sans text-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-3 group cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" class="w-7 h-7 text-brand-red group-hover:rotate-90 transition-transform duration-700">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" class="w-7 h-7 text-brand-green group-hover:rotate-90 transition-transform duration-700">
                     <circle cx="12" cy="12" r="10"/>
                     <circle cx="12" cy="12" r="2"/>
                     <circle cx="12" cy="6" r="2.5"/>
                     <circle cx="17.2" cy="15" r="2.5"/>
                     <circle cx="6.8" cy="15" r="2.5"/>
                 </svg>
-                <span class="font-black tracking-[0.2em] text-brand-white uppercase text-lg">DOKUMENTA<span class="text-brand-red">.VIDEO</span></span>
+                <span class="font-black tracking-[0.2em] text-brand-white uppercase text-lg">DOKUMENTA<span class="text-brand-green">.VIDEO</span></span>
             </div>
             
             <div class="flex gap-8">
-                <a href="https://github.com/josev2046" target="_blank" class="hover:text-brand-red transition-colors flex items-center gap-2 font-bold tracking-widest uppercase">
+                <a href="https://github.com/josev2046" target="_blank" class="hover:text-brand-green transition-colors flex items-center gap-2 font-bold tracking-widest uppercase">
                     <i data-lucide="github" class="w-5 h-5"></i> GitHub
                 </a>
-                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-brand-red transition-colors flex items-center gap-2 font-black tracking-widest uppercase">
+                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-brand-green transition-colors flex items-center gap-2 font-black tracking-widest uppercase">
                     iD ORCID
                 </a>
-                <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="hover:text-brand-red transition-colors flex items-center gap-2 font-bold tracking-widest uppercase">
+                <a href="https://www.linkedin.com/in/jvelazquez/" target="_blank" class="hover:text-brand-green transition-colors flex items-center gap-2 font-bold tracking-widest uppercase">
                     <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
                 </a>
             </div>
