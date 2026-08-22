@@ -12,7 +12,7 @@
     <!-- Google Fonts: Merriweather (Academic) & Inter (Modern UI) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -46,16 +46,23 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="#" class="flex items-center gap-2 group">
-                    <i data-lucide="archive" class="w-6 h-6 text-zinc-900"></i>
+                    <!-- Custom Film Spool/Reel Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-zinc-900 group-hover:rotate-90 transition-transform duration-700">
+                      <circle cx="12" cy="12" r="10"/>
+                      <circle cx="12" cy="12" r="2"/>
+                      <circle cx="12" cy="6" r="2.5"/>
+                      <circle cx="17.2" cy="15" r="2.5"/>
+                      <circle cx="6.8" cy="15" r="2.5"/>
+                    </svg>
                     <span class="font-sans font-semibold tracking-widest text-zinc-900 text-sm md:text-base">DOKUMENTA<span class="text-zinc-500">.VIDEO</span></span>
                 </a>
                 <div class="hidden md:flex space-x-8 font-sans text-sm font-medium items-center">
+                    <a href="#lab" class="text-zinc-500 hover:text-zinc-900 transition-colors">The Lab</a>
                     <a href="#architect" class="text-zinc-500 hover:text-zinc-900 transition-colors">The Architect</a>
                     <a href="#mission" class="text-zinc-500 hover:text-zinc-900 transition-colors">Mission</a>
-                    <a href="#endorsements" class="text-zinc-500 hover:text-zinc-900 transition-colors">Endorsements</a>
                     <div class="w-px h-4 bg-zinc-300"></div>
-                    <a href="https://github.com/josev2046" target="_blank" class="text-zinc-500 hover:text-zinc-900 transition-colors flex items-center gap-1"><i data-lucide="github" class="w-4 h-4"></i></a>
-                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="text-zinc-500 hover:text-zinc-900 transition-colors font-bold">iD</a>
+                    <a href="https://github.com/josev2046" target="_blank" aria-label="GitHub Profile" class="text-zinc-500 hover:text-zinc-900 transition-colors flex items-center gap-1"><i data-lucide="github" class="w-4 h-4"></i></a>
+                    <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" aria-label="ORCID Profile" class="text-zinc-500 hover:text-zinc-900 transition-colors font-bold">iD</a>
                     <a href="#contact" class="bg-zinc-900 text-white px-5 py-2.5 rounded hover:bg-zinc-800 transition-all shadow-sm ml-2">Contact</a>
                 </div>
             </div>
@@ -89,21 +96,66 @@
         </div>
     </section>
 
-    <!-- ARCHITECT SECTION -->
-    <section id="architect" class="py-24 bg-white border-b border-zinc-200">
+    <!-- ABOUT THE LAB SECTION -->
+    <section id="lab" class="py-24 bg-white border-b border-zinc-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
                 
-                <div class="lg:col-span-5">
+                <!-- Left Column: Text -->
+                <div class="lg:col-span-5 flex flex-col justify-center">
+                    <h2 class="text-xs font-sans font-bold tracking-widest text-zinc-500 uppercase mb-3">About The Lab</h2>
+                    <h3 class="text-3xl font-serif font-bold text-zinc-900 mb-6">Facilitating understanding and interpretation.</h3>
+                    <p class="text-zinc-600 font-sans leading-relaxed mb-6">
+                        Founded and led by documentarian <strong>José Velázquez</strong> (MA, University of the Arts, London | IBM Cloud & Cognitive Technical Architect), DOKUMENTA.VIDEO aims to make archival content more widely known and accessible.
+                    </p>
+                    <p class="text-zinc-600 font-sans leading-relaxed">
+                        We blend deep digital media archiving skills with extensive computer savoir-faire, utilising Speech Recognition, Computer Vision, and NLU technologies.
+                    </p>
+                </div>
+                
+                <!-- Right Column: 4 Cards -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200 hover:shadow-md transition-shadow">
+                        <i data-lucide="network" class="w-6 h-6 text-zinc-900 mb-4"></i>
+                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Information Architecture</h4>
+                        <p class="text-sm text-zinc-600 leading-relaxed">Structuring and organising complex archival data for seamless retrieval.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200 hover:shadow-md transition-shadow">
+                        <i data-lucide="cpu" class="w-6 h-6 text-zinc-900 mb-4"></i>
+                        <h4 class="font-serif font-bold text-zinc-900 mb-2">AI & NLU Technologies</h4>
+                        <p class="text-sm text-zinc-600 leading-relaxed">Strategic and technical advice on Speech Recognition and Computer Vision.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200 hover:shadow-md transition-shadow">
+                        <i data-lucide="book-open" class="w-6 h-6 text-zinc-900 mb-4"></i>
+                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Academic Outreach</h4>
+                        <p class="text-sm text-zinc-600 leading-relaxed">Curriculum development, training programmes, and industry mentoring.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200 hover:shadow-md transition-shadow">
+                        <i data-lucide="folder-search" class="w-6 h-6 text-zinc-900 mb-4"></i>
+                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Collections Audit</h4>
+                        <p class="text-sm text-zinc-600 leading-relaxed">Comprehensive evaluation and project management for media archives.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCHITECT SECTION -->
+    <section id="architect" class="py-24 bg-zinc-50 border-b border-zinc-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
+                
+                <div class="lg:col-span-6">
                     <h2 class="text-xs font-sans font-bold tracking-widest text-zinc-500 uppercase mb-3">The Architect</h2>
                     <h3 class="text-3xl font-serif font-bold text-zinc-900 mb-6">José Velázquez</h3>
                     <p class="text-zinc-600 font-sans leading-relaxed mb-4">
                         A London-based Principal Architect and archive practitioner with over two decades of experience driving digital innovation across the technology, media, and cultural heritage sectors. Consulting for organisations such as the BBC, IBM, and Google, his work focuses on the intersection of audiovisual preservation, artificial intelligence, and open systems.
                     </p>
-                    <p class="text-zinc-600 font-sans leading-relaxed mb-6">
+                    <p class="text-zinc-600 font-sans leading-relaxed mb-4">
                         Trained at the BBC in broadcast operations and holding an MA in Documentary Research for Film and TV (UAL), José specialises in bespoke Media Asset Management (MAM) systems, OTT media, and the ethical application of AI—including Retrieval-Augmented Generation (RAG)—to reshape cultural memory and reclaim marginalised narratives.
                     </p>
-                    <div class="flex items-center gap-4 mt-8 pt-6 border-t border-zinc-100">
+                    <div class="flex items-center gap-4 mt-8 pt-6 border-t border-zinc-200">
                         <a href="https://github.com/josev2046" target="_blank" class="flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 transition-colors">
                             <i data-lucide="github" class="w-4 h-4"></i> GitHub
                         </a>
@@ -113,21 +165,27 @@
                     </div>
                 </div>
                 
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200">
-                        <i data-lucide="award" class="w-6 h-6 text-zinc-900 mb-4"></i>
-                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Industry Recognition</h4>
+                <div class="lg:col-span-6 grid grid-cols-1 gap-6">
+                    <div class="p-8 bg-white rounded-sm border border-zinc-200 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="award" class="w-5 h-5 text-zinc-900"></i>
+                            <h4 class="font-serif font-bold text-zinc-900">Industry Recognition</h4>
+                        </div>
                         <p class="text-sm text-zinc-600 leading-relaxed">Recognised with the 2019 IBM Watson Media Award for innovative use of AI in media archives, showcasing early applications of RAG at IBC 2019.</p>
                     </div>
-                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200">
-                        <i data-lucide="film" class="w-6 h-6 text-zinc-900 mb-4"></i>
-                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Heritage Preservation</h4>
+                    <div class="p-8 bg-white rounded-sm border border-zinc-200 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="film" class="w-5 h-5 text-zinc-900"></i>
+                            <h4 class="font-serif font-bold text-zinc-900">Heritage Preservation</h4>
+                        </div>
                         <p class="text-sm text-zinc-600 leading-relaxed">Led the 'Black Lives' project (FIAT/IFTA 2020), digitising obsolete formats to preserve narratives from Eartha Kitt and Quincy Jones, alongside experimental AI audio preservation (ICCROM 2025).</p>
                     </div>
-                    <div class="p-8 bg-zinc-50 rounded-sm border border-zinc-200 sm:col-span-2">
-                        <i data-lucide="graduation-cap" class="w-6 h-6 text-zinc-900 mb-4"></i>
-                        <h4 class="font-serif font-bold text-zinc-900 mb-2">Academic Outreach & Lecturing</h4>
-                        <p class="text-sm text-zinc-600 leading-relaxed">Since 2016, José has served as an Associate Lecturer on the Digital Humanities Master's programme at the Universidad Pablo de Olavide (Seville). He also partners with UAL: LCC, Cardiff School of Journalism, and Open Cinema to bridge the digital skills gap in the archivist profession.</p>
+                    <div class="p-8 bg-white rounded-sm border border-zinc-200 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-zinc-900"></i>
+                            <h4 class="font-serif font-bold text-zinc-900">Academic Outreach</h4>
+                        </div>
+                        <p class="text-sm text-zinc-600 leading-relaxed">Since 2016, José has served as an Associate Lecturer on the Digital Humanities Master's programme at the Universidad Pablo de Olavide (Seville). He also partners with UAL: LCC, Cardiff School of Journalism, and Open Cinema.</p>
                     </div>
                 </div>
             </div>
@@ -135,12 +193,12 @@
     </section>
 
     <!-- MISSION SECTION -->
-    <section id="mission" class="py-24 bg-zinc-50">
+    <section id="mission" class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
             <h2 class="text-xs font-sans font-bold tracking-widest text-zinc-500 uppercase mb-3">Social Responsibility</h2>
             <h3 class="text-3xl font-serif font-bold text-zinc-900 mb-8">Putting unique experience to work for communities.</h3>
             
-            <blockquote class="text-xl md:text-2xl font-serif font-light text-zinc-800 italic leading-relaxed mb-8 border-l-4 border-zinc-900 pl-6 text-left bg-white p-6 shadow-sm">
+            <blockquote class="text-xl md:text-2xl font-serif font-light text-zinc-800 italic leading-relaxed mb-8 border-l-4 border-zinc-900 pl-6 text-left bg-zinc-50 p-6 shadow-sm">
                 "Archivists and record-keepers are not traditionally considered stakeholders when it comes to discussions connected to the development and the implementation of AI solutions. And yet, they will need to advise decision-makers on the preservation of algorithms as well as understand how to manage the significant ethical challenges posed by these emerging cognitive technologies."
                 <footer class="text-sm font-sans font-semibold text-zinc-500 mt-4 not-italic">— Dr. Anthea Seles, Secretary General ICA (2020)</footer>
             </blockquote>
@@ -198,14 +256,14 @@
     </section>
 
     <!-- CONTACT FORM SECTION -->
-    <section id="contact" class="py-24 bg-white border-t border-zinc-200">
+    <section id="contact" class="py-24 bg-zinc-50 border-t border-zinc-200">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-serif font-bold text-zinc-900 mb-4">Initiate Contact</h2>
                 <p class="font-sans text-zinc-600">Enquire about our services, book a lecture, or discuss an archival workflow.</p>
             </div>
 
-            <div class="bg-zinc-50 rounded-sm border border-zinc-200 p-8 sm:p-10">
+            <div class="bg-white rounded-sm border border-zinc-200 shadow-sm p-8 sm:p-10">
                 <!-- WORKING WEB3FORMS ROUTING -->
                 <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-6">
                     
@@ -216,22 +274,22 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block font-sans text-xs font-bold text-zinc-900 uppercase tracking-widest">Name</label>
-                            <input type="text" name="name" required class="w-full bg-white border border-zinc-300 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="Full Name">
+                            <input type="text" name="name" required class="w-full bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="Full Name">
                         </div>
                         <div class="space-y-2">
                             <label class="block font-sans text-xs font-bold text-zinc-900 uppercase tracking-widest">Email</label>
-                            <input type="email" name="email" required class="w-full bg-white border border-zinc-300 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="email@address.com">
+                            <input type="email" name="email" required class="w-full bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="email@address.com">
                         </div>
                     </div>
 
                     <div class="space-y-2">
                         <label class="block font-sans text-xs font-bold text-zinc-900 uppercase tracking-widest">Subject</label>
-                        <input type="text" name="subject" class="w-full bg-white border border-zinc-300 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="Project Inquiry">
+                        <input type="text" name="subject" class="w-full bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors" placeholder="Project Inquiry">
                     </div>
 
                     <div class="space-y-2">
                         <label class="block font-sans text-xs font-bold text-zinc-900 uppercase tracking-widest">Message</label>
-                        <textarea name="message" required rows="5" class="w-full bg-white border border-zinc-300 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors resize-none" placeholder="Provide details here..."></textarea>
+                        <textarea name="message" required rows="5" class="w-full bg-zinc-50 border border-zinc-200 text-zinc-900 rounded-sm p-3 focus:outline-none focus:border-zinc-900 transition-colors resize-none" placeholder="Provide details here..."></textarea>
                     </div>
 
                     <button type="submit" class="w-full font-sans bg-zinc-900 hover:bg-zinc-800 text-white font-semibold p-4 rounded-sm flex justify-center items-center gap-2 transition-colors">
@@ -249,17 +307,23 @@
     <!-- FOOTER -->
     <footer class="bg-zinc-950 py-12 text-zinc-500 font-sans text-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i data-lucide="archive" class="w-5 h-5"></i>
-                <span class="font-semibold tracking-widest text-zinc-400">DOKUMENTA.VIDEO</span>
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-zinc-500 group-hover:rotate-90 transition-transform duration-700">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="2"/>
+                    <circle cx="12" cy="6" r="2.5"/>
+                    <circle cx="17.2" cy="15" r="2.5"/>
+                    <circle cx="6.8" cy="15" r="2.5"/>
+                </svg>
+                <span class="font-semibold tracking-widest text-zinc-400 group-hover:text-zinc-300 transition-colors">DOKUMENTA.VIDEO</span>
             </div>
             
             <div class="flex gap-6">
                 <a href="https://github.com/josev2046" target="_blank" class="hover:text-white transition-colors flex items-center gap-1">
                     <i data-lucide="github" class="w-4 h-4"></i> GitHub
                 </a>
-                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-white transition-colors flex items-center gap-1">
-                    <i data-lucide="book-open" class="w-4 h-4"></i> ORCID
+                <a href="https://orcid.org/my-orcid?orcid=0000-0003-4862-6021" target="_blank" class="hover:text-white transition-colors flex items-center gap-1 font-bold">
+                    iD ORCID
                 </a>
             </div>
 
