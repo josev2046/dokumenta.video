@@ -1,10 +1,10 @@
 # DOKUMENTA.VIDEO // AV Archive Systems
 
-#Audio Visual Preservation, #Open Access, #Accessibility and #AI
+*#AudioVisualPreservation #OpenAccess #Accessibility #AppliedAI*
 
-Welcome to the repository for **[dokumenta.video](https://dokumenta.video)**, the digital presence for a multidisciplinary R&D lab focused on audiovisual preservation, open access, and applied artificial intelligence.
+Welcome to the repository for **[dokumenta.video](https://dokumenta.video)**, a multidisciplinary research and development initiative focused on audiovisual preservation, open access, and applied artificial intelligence.
 
-It serves as both a portfolio and a contact portal for consulting services at the intersection of traditional media preservation and modern cognitive computing (Computer Vision, Speech Recognition, and NLU).
+This project explores the intersection of traditional media heritage and modern cognitive computing (Computer Vision, Speech Recognition, and Natural Language Understanding). It acts as a central hub for documenting methodologies, academic outreach, and practical approaches to transforming unstructured legacy media into discoverable, structured data.
 
 ---
 
