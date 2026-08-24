@@ -1,13 +1,7 @@
-# DOKUMENTA.VIDEO // AV Archive Systems
+#AudioVisualPreservation #OpenAccess #Accessibility #AppliedAI
 
-*#AudioVisualPreservation #OpenAccess #Accessibility #AppliedAI*
+This is the public repository for **[dokumenta.video](https://dokumenta.video/)**, a project focused on audiovisual preservation, open access, and applied artificial intelligence.
 
-Welcome to the repository for **[dokumenta.video](https://dokumenta.video)**, a multidisciplinary research and development initiative focused on audiovisual preservation, open access, and applied artificial intelligence.
+It documents practical workflows for applying modern technology—such as Computer Vision, Speech Recognition, and Natural Language Processing (NLP)—to traditional media archives. The main objective is to provide clear methodologies for converting unstructured, legacy media into structured, searchable data. 
 
-This project explores the intersection of traditional media heritage and modern cognitive computing (Computer Vision, Speech Recognition, and Natural Language Understanding). It acts as a central hub for documenting methodologies, academic outreach, and practical approaches to transforming unstructured legacy media into discoverable, structured data.
-
----
-
-*“Unlocking the inherent value in media archives.”*
-
-[Visit the live site](https://dokumenta.video) | [Connect on LinkedIn](https://www.linkedin.com/in/jvelazquez/)
+Additionally, this repository contains the complete syllabus and materials for the academic module: *Case Studies for Digital Humanities Research*.
