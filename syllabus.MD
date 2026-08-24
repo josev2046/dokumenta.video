@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1342930529.svg)](https://doi.org/10.5281/zenodo.22077610)
+
 # Module syllabus: case studies for digital humanities research
 **Academic Year:** 2026-2027
 **Instructor:** José Velázquez, MA
