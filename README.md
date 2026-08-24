@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1342930529.svg)](https://doi.org/10.5281/zenodo.22077610)
+
 #AudioVisualPreservation #OpenAccess #Accessibility #AppliedAI
 
 This is the public repository for **[dokumenta.video](https://dokumenta.video/)**, a project focused on audiovisual preservation, open access, and applied artificial intelligence.
