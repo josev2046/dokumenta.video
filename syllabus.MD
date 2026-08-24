@@ -1,5 +1,5 @@
 # Module syllabus: case studies for digital humanities research
-**Academic Year:** 2025-2026
+**Academic Year:** 2026-2027
 **Instructor:** José Velázquez, MA
 
 ## Abstract
