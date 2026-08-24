@@ -61,3 +61,68 @@ Upon successful completion of this module, participants will be able to:
 4.  **Implement** robust digital preservation workflows using established metadata standards and OAIS principles.
 5.  **Utilise** advanced content analysis techniques and cognitive computing (AI/ML) tools to enrich audiovisual materials.
 6.  **Critically assess** the ethical implications of digital archiving, algorithmic bias, and AI applications in cultural heritage contexts.
+
+---
+
+# Programa del módulo: Casos de estudio para la investigación en humanidades digitales
+**Curso Académico:** 2026-2027
+**Profesor:** José Velázquez, MA
+
+## Resumen
+El trabajo en los archivos ha cambiado. Hoy en día, la labor del archivero va más allá de la conservación tradicional de soportes físicos; requiere gestionar archivos digitales efímeros, evaluar la información de forma técnica y colaborar directamente con las comunidades. Este módulo aborda cómo asegurar que los registros históricos se mantengan accesibles y precisos en un entorno digital complejo. El objetivo es formar profesionales capaces de documentar y organizar la información de forma objetiva y estructurada.
+
+## Justificación del módulo
+Este módulo se centra en los problemas técnicos reales y las soluciones dentro de la archivística audiovisual y la gestión de contenidos. Basado en la experiencia directa en la industria (digitalización, preservación y gestión de formatos antiguos o *legacy media*), el curso explica cómo operar en la práctica archivística actual. 
+
+Gran parte del contenido audiovisual histórico corre el riesgo de perderse debido a formatos obsoletos y condiciones de almacenamiento inadecuadas. Este plan de estudios enseña las metodologías, estándares y herramientas tecnológicas necesarias para frenar esta pérdida y procesar los archivos correctamente.
+
+---
+
+## Estructura del plan de estudios
+
+### Tema 1: El entorno de la información actual
+*   **El archivo digital:** La transición de custodiar objetos físicos a gestionar información en un entorno propenso a la desinformación.
+*   **Archivos efímeros y verificación:** Métodos para capturar comunicaciones digitales volátiles (redes sociales, webs dinámicas) y herramientas técnicas de verificación (firmas digitales, *blockchain*, análisis de metadatos).
+*   **Análisis de la información:** Técnicas para documentar el contexto y la procedencia de los archivos para identificar manipulaciones o datos falsos.
+*   **Ética en el tratamiento de datos:** Criterios prácticos para tratar material sensible, identificar sesgos en la catalogación y asegurar un acceso equitativo.
+
+### Tema 2: Fundamentos de digitalización y gestión de contenidos
+*   **Antes y después de digitalizar:** Cómo cambia la infraestructura de almacenamiento, el acceso y las herramientas de análisis de un archivo.
+*   **Requisitos técnicos:**
+    *   *Almacenamiento:* Creación y gestión de infraestructura digital para grandes volúmenes de datos.
+    *   *Preservación:* Uso de tecnología para recuperar formatos físicos en riesgo.
+    *   *Acceso:* Diseño de plataformas para que distintos tipos de usuarios puedan consultar el material.
+*   **Obsolescencia de formatos:** Análisis del deterioro de los soportes físicos y digitales, utilizando casos reales (ej. VIAA y el Museo de Medios Obsoletos).
+
+### Tema 3: Flujos de trabajo y estándares de preservación digital
+*   **Sistemas OAIS:** Normas y estructura para crear repositorios digitales (Open Archival Information Systems) fiables a largo plazo.
+*   **Arquitectura de metadatos:** Implementación técnica de estándares internacionales, incluyendo Dublin Core y normas ISO.
+*   **Web semántica:** Uso de estándares del W3C (SKOS, RDF, OWL) para indexar, estructurar y conectar la información del archivo.
+
+### Tema 4: IA aplicada y computación en el archivo
+*   **Análisis automatizado:** Uso de tecnología para extraer datos masivos de los archivos, superando los límites de la catalogación manual.
+*   **Herramientas de Machine Learning:** Ejemplos de implementación de IA en archivos:
+    *   Transcripción automatizada de audio a texto.
+    *   Reconocimiento facial, de objetos y logotipos en vídeo.
+    *   Procesamiento del lenguaje natural (PLN) para extraer entidades y conceptos.
+    *   Generación automática de metadatos.
+*   **Auditoría de algoritmos:** Identificación de sesgos, errores y problemas de transparencia al utilizar inteligencia artificial para clasificar patrimonio.
+
+### Tema 5: Casos prácticos e implementación real
+Análisis de soluciones de infraestructura y proyectos reales implementados en instituciones patrimoniales.
+
+*   **Archivos de radiodifusión:** Flujos de trabajo y estrategias de almacenamiento a gran escala en entidades como la **BBC**, **RTVE** y el **British Film Institute (BFI)**.
+*   **IBM Watson en la BBC:** Análisis técnico de cómo se integran las herramientas de inteligencia artificial (Watson Media) para generar metadatos y mejorar el motor de búsqueda de un archivo televisivo.
+*   **Archivos audiovisuales específicos:** Metodologías aplicadas para preservar historias de grupos marginados y técnicas para evitar sesgos sistémicos en las bases de datos.
+*   **Archivos de memoria comunitaria:** Procesos técnicos para recolectar, estructurar y publicar material audiovisual generado directamente por ciudadanos.
+
+---
+
+## Resultados de aprendizaje
+Al terminar el módulo, los alumnos sabrán:
+1.  **Entender** las necesidades técnicas y logísticas de un archivo moderno.
+2.  **Aplicar** metodologías de digitalización para almacenar, preservar y dar acceso a colecciones audiovisuales.
+3.  **Identificar y solucionar** problemas relacionados con soportes físicos degradados o formatos digitales obsoletos.
+4.  **Diseñar** flujos de trabajo basados en el modelo OAIS y estándares de metadatos internacionales.
+5.  **Utilizar** herramientas de inteligencia artificial y aprendizaje automático (*Machine Learning*) para procesar e indexar archivos audiovisuales de forma eficiente.
+6.  **Evaluar** de forma objetiva los problemas de privacidad, derechos y sesgos algorítmicos que las tecnologías digitales pueden introducir en la base de datos.
